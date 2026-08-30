@@ -1,0 +1,31 @@
+[project]
+name = "fxshot-tools"
+version = "1.0.0"
+description = "Analysis and sweep harness for fxshot"
+requires-python = ">=3.13"
+dependencies = ["numpy>=2.0", "pillow>=10.0"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+extend-exclude = ["work"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",      # pycodestyle
+    "F",           # pyflakes
+    "I",           # import sorting
+    "UP",          # pyupgrade, keeps syntax current for the target version
+    "B",           # bugbear
+    "SIM",         # simplifiable constructs
+    "RET",         # return statements
+    "C4",          # comprehensions
+    "PTH",         # prefer pathlib over os.path
+    "RUF",
+]
+ignore = [
+    "E741",   # ambiguous names: l is the conventional symbol for luminance here
+]
+
+[tool.ruff.format]
+quote-style = "double"

@@ -1,0 +1,24 @@
+# Build output
+build/
+*.exe
+*.obj
+*.pdb
+*.ilk
+__pycache__/
+.ruff_cache/
+
+# reshadefxc.exe is built by tools/reshadefx/build.bat. These are the listings,
+# objects and error logs allmodes.py and manual runs leave beside it.
+tools/reshadefx/*.hlsl
+tools/reshadefx/*.cso
+tools/reshadefx/*.txt
+
+# Scratch: reference frames, sweep renders, generated presets. Local only.
+work/
+
+# Renders and sweep logs, wherever they land. The worked example under
+# examples/ is committed on purpose, so it is excluded from this rule.
+*.png
+!examples/**/*.png
+sw_*/
+r_*.txt

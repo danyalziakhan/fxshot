@@ -1,0 +1,124 @@
+SIZE 960 600
+TEX TexColor BACKBUFFER 0 0 R8G8B8A8_UNORM 1 -
+TEX TexCombined NORMAL 960 600 R16G16B16A16_FLOAT 1 -
+TEX TexBlueNoise NORMAL 512 256 R8G8B8A8_UNORM 1 dz_stbn_512x256.png
+TEX TexLuma NORMAL 960 600 R16_FLOAT 10 -
+TEX TexLumaLog NORMAL 960 600 R16_FLOAT 10 -
+TEX TexLuma512 NORMAL 512 512 R16_FLOAT 10 -
+TEX TexLuma256 NORMAL 256 256 R16_FLOAT 9 -
+TEX TexLuma128 NORMAL 128 128 R16_FLOAT 8 -
+TEX TexLuma64 NORMAL 64 64 R16_FLOAT 7 -
+TEX TexTempMeansMedium NORMAL 480 300 R16G16_FLOAT 6 -
+TEX TexStatsMedium NORMAL 480 300 R16G16_FLOAT 1 -
+TEX TexTempMeansMicro NORMAL 480 300 R16G16_FLOAT 6 -
+TEX TexStatsMicro NORMAL 480 300 R16G16_FLOAT 1 -
+TEX TexTempMeansMacro NORMAL 480 300 R16G16_FLOAT 6 -
+TEX TexStatsMacro NORMAL 480 300 R16G16_FLOAT 1 -
+TEX TexVarI NORMAL 960 600 R16G16B16A16_FLOAT 1 -
+TEX TexAdapt NORMAL 1 1 R32G32_FLOAT 1 -
+TEX TexLastAdapt NORMAL 1 1 R32G32_FLOAT 1 -
+TEX TexLastParams NORMAL 1 1 R32G32B32A32_FLOAT 1 -
+SAMSTATE 0 LINEAR LINEAR LINEAR CLAMP CLAMP
+SAMSTATE 1 POINT POINT POINT WRAP WRAP
+SAMSTATE 2 POINT POINT POINT CLAMP CLAMP
+SAM sTexColor TexColor 0
+SAM sTexCombined TexCombined 0
+SAM sTexBlueNoise TexBlueNoise 1
+SAM sTexLuma TexLuma 0
+SAM sTexLumaLog TexLumaLog 0
+SAM sTexLuma512 TexLuma512 0
+SAM sTexLuma256 TexLuma256 0
+SAM sTexLuma128 TexLuma128 0
+SAM sTexLuma64 TexLuma64 0
+SAM sTexTempMeansMedium TexTempMeansMedium 0
+SAM sTexStatsMedium TexStatsMedium 0
+SAM sTexTempMeansMicro TexTempMeansMicro 0
+SAM sTexStatsMicro TexStatsMicro 0
+SAM sTexTempMeansMacro TexTempMeansMacro 0
+SAM sTexStatsMacro TexStatsMacro 0
+SAM sTexVarI TexVarI 0
+SAM sTexAdapt TexAdapt 2
+SAM sTexLastAdapt TexLastAdapt 2
+SAM sTexLastParams TexLastParams 2
+UNI float Strength - 0.300000 0 1
+UNI float DynamicIntensity - 0.650000 1 1
+UNI float DarkFadeThreshold - 0.200000 2 1
+UNI float Radius - 13.500000 3 1
+UNI float Epsilon - 0.001000 4 1
+UNI float DetailLimit - 0.000000 5 1
+UNI float Contrast_Micro - 0.000000 6 1
+UNI float Contrast_Medium - 0.000000 7 1
+UNI float Contrast_Macro - 0.000000 8 1
+UNI float Contrast_Macro_Guard - 0.000000 9 1
+UNI float Contrast_Shadow_Strength - 1.000000 10 1
+UNI float Contrast_Shadow_Threshold - 0.000000 11 1
+UNI bool EnableDithering - 1 12 1
+UNI float DitherStrength - 1.000000 13 1
+UNI int DitherPattern - 1 14 1
+UNI bool EnableDeband - 1 15 1
+UNI float DebandMaxCorrection - 2.000000 16 1
+UNI float DebandSplit - 1.000000 17 1
+UNI int DebandTaps - 1 18 1
+UNI bool EnableDebandEffect - 1 19 1
+UNI float DebandEffectThreshold - 1.750000 20 1
+UNI float DebandEffectRadius - 13.000000 21 1
+UNI int DebandEffectIterations - 2 22 1
+UNI float DebandEffectDetail - 1.000000 23 1
+UNI bool EnableDebandSource - 1 24 1
+UNI float DebandSourceThreshold - 1.650000 25 1
+UNI float DebandSourceRadius - 12.000000 26 1
+UNI int DebandSourceIterations - 1 27 1
+UNI float DebandSourceDetail - 0.850000 28 1
+UNI bool EnableAdaptation - 1 29 1
+UNI float AdaptationTime - 0.500000 30 1
+UNI float DarkAdaptationMult - 2.500000 31 1
+UNI float AdaptMin - 0.030000 32 1
+UNI float AdaptMax - 0.850000 33 1
+UNI float ManualExposure - 0.100000 34 1
+UNI float AdaptationStrength - 1.000000 35 1
+UNI int LumaTextureSize - 0 36 1
+UNI float TriggerRadius - 8.000000 37 1
+UNI float TonalResponseStops - 1.500000 38 1
+UNI float TonalNeutralPoint - 0.300000 39 1
+UNI float LiftHighlights - 1.000000 40 1
+UNI float LiftMidtones - 1.000000 41 1
+UNI float LiftShadows - 1.000000 42 1
+UNI float PullHighlights - 1.000000 43 1
+UNI float PullMidtones - 1.000000 44 1
+UNI float PullShadows - 1.000000 45 1
+UNI bool EnableSplitToning - 1 46 1
+UNI float HighlightTintTone - 0.500000 47 1
+UNI float ShadowTintTone - 0.500000 48 1
+UNI float TintOpacityH - 0.150000 49 1
+UNI float TintOpacityS - 0.080000 50 1
+UNI float TintThresholdH - 1.250000 51 1
+UNI float TintThresholdS - 0.700000 52 1
+UNI bool EnablePurkinje - 1 53 1
+UNI float Purkinje_Red_Reduction - 0.100000 54 1
+UNI float Purkinje_Green_Bias - 0.010000 55 1
+UNI float Purkinje_Blue_Bias - 0.012000 56 1
+UNI float Purkinje_Fade_End - 0.200000 57 1
+UNI float Purkinje_Fade_Start - 0.050000 58 1
+UNI bool Debug_Mask - 0 59 1
+UNI bool Debug_Dithering - 0 60 1
+UNI bool Debug_Deband - 0 61 1
+UNI float FrameTime frametime - 62 1
+UNI int FrameCount framecount - 63 1
+PASS Luma PostProcessVS PS_Luma TexLuma
+PASS LumaLog PostProcessVS PS_LumaLog TexLumaLog
+PASS Luma512 PostProcessVS PS_Luma512 TexLuma512
+PASS Luma256 PostProcessVS PS_Luma256 TexLuma256
+PASS Luma128 PostProcessVS PS_Luma128 TexLuma128
+PASS Luma64 PostProcessVS PS_Luma64 TexLuma64
+PASS CalcAdapt PostProcessVS PS_CalcAdapt TexAdapt
+PASS SaveParams PostProcessVS PS_SaveParams TexLastParams
+PASS SaveAdapt PostProcessVS PS_SaveAdapt TexLastAdapt
+PASS CalcMeansH_Medium PostProcessVS PS_CalcMeansH_Medium TexTempMeansMedium
+PASS CalcMeansV_Medium PostProcessVS PS_CalcMeansV_Medium TexStatsMedium
+PASS CalcMeansH_Micro PostProcessVS PS_CalcMeansH_Micro TexTempMeansMicro
+PASS CalcMeansV_Micro PostProcessVS PS_CalcMeansV_Micro TexStatsMicro
+PASS CalcMeansH_Macro PostProcessVS PS_CalcMeansH_Macro TexTempMeansMacro
+PASS CalcMeansV_Macro PostProcessVS PS_CalcMeansV_Macro TexStatsMacro
+PASS GuidedFilter PostProcessVS PS_GuidedFilterResult TexVarI
+PASS Combine PostProcessVS PS_FinalCombine TexCombined
+PASS Present PostProcessVS PS_Present -
