@@ -481,6 +481,8 @@ def make_hlsl(source: str, effect: Effect, defines: dict[str, str]) -> str:
         "#define tex2D(s, uv)      s##_t.Sample(s##_s, (uv))",
         "#define tex2Dlod(s, c)    s##_t.SampleLevel(s##_s, (c).xy, (c).w)",
         "#define tex2Dfetch(s, c)  s##_t.Load(int3((int2)(c), 0))",
+        "#define tex2Dsize(s)      _tex2Dsize(s##_t)",
+        "int2 _tex2Dsize(Texture2D t) { uint w, h; t.GetDimensions(w, h); return int2(w, h); }",
         "",
         "cbuffer Uniforms : register(b0) {",
     ]
@@ -497,8 +499,12 @@ def make_manifest(effect: Effect) -> str:
     """Flat line based manifest, so the C++ host needs no JSON dependency."""
     lines = [f"SIZE {effect.width} {effect.height}"]
     for t in effect.textures.values():
-        if t.semantic:
+        if t.semantic == "COLOR":
             lines.append(f"TEX {t.name} BACKBUFFER 0 0 {effect.backbuffer_format} 1 -")
+        elif t.semantic:
+            # Any other semantic is one an add-on binds, and with no add-on here
+            # ReShade leaves it on its 1x1 empty texture.
+            lines.append(f"TEX {t.name} NORMAL 1 1 R16_FLOAT 1 -")
         else:
             lines.append(
                 f"TEX {t.name} NORMAL {t.width} {t.height} {t.format} "

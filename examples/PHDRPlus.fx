@@ -39,7 +39,7 @@
 // the point of use, so a preset covers the same fraction of any monitor.
 #define REFERENCE_HEIGHT 1080.0
 
-// A swap chain in scRGB or HDR10 means PHDR Source is converting the frame
+// A swap chain in scRGB or HDR10 means HDR Bridge is converting the frame
 // for an SDR monitor, and its Output stage debands and dithers for the 8-bit
 // cut Windows makes. Here the frame is float, so there is nothing to deband
 // against and those passes are compiled out rather than run for nothing.
@@ -70,7 +70,7 @@ void PostProcessVS(in uint id : SV_VertexID, out float4 position : SV_Position, 
 }
 
 // Everything works on gamma encoded SDR values in [0, 1]. On an HDR swap chain
-// PHDR Source converts the frame to that form before this shader runs.
+// HDR Bridge converts the frame to that form before this shader runs.
 static const float3 LUMA_709 = float3(0.2126, 0.7152, 0.0722);
 
 float GetLuminance(float3 color)
