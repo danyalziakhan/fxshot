@@ -235,8 +235,8 @@ static std::vector<uint16_t> loadPfmAsScRgb(const std::string& path, UINT& w, UI
 
 // Stands in for DWM showing a half float swap chain on an SDR display: clip to
 // [0, 1] and round to 8 bits, encoding with the sRGB piecewise curve first when
-// the swap chain's colour space is scRGB. A game that turns HDR on through the
-// GPU driver never sets the colour space, and DWM then shows the values as sRGB
+// the swap chain's color space is scRGB. A game that turns HDR on through the
+// GPU driver never sets the color space, and DWM then shows the values as sRGB
 // code values as they are; --present code selects that. Both were checked
 // against desktop duplication captures.
 static uint8_t scRgbToSrgb8(float v, bool encode) {
@@ -259,7 +259,7 @@ int wmain(int argc, wchar_t** argv) {
                  noisePath, batchPath;
     int frames = 0;
     std::wstring adapterOpt;
-    bool presentLinear = true;   // --present linear (scRGB) or code (colour space never set)
+    bool presentLinear = true;   // --present linear (scRGB) or code (color space never set)
     for (int i = 1; i + 1 < argc; i += 2) {
         std::wstring k = argv[i], v = argv[i + 1];
         if (k == L"--hlsl") hlslPath = v;

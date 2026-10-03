@@ -1040,7 +1040,7 @@ float MonotonicCurveLimit(float strengthMidtones, float strengthShadows, float s
     return (slope < 0.0) ? (-1.0 / slope) : 1e6;
 }
 
-// Roll a colour whose brightest channel exceeds a soft knee back down to 1.0 by
+// Roll a color whose brightest channel exceeds a soft knee back down to 1.0 by
 // scaling all three channels together, so an over-boosted highlight desaturates
 // toward white instead of hard-clipping one channel at a time and shifting hue.
 float3 GamutSoftClip(float3 c)
@@ -1504,7 +1504,7 @@ float4 PS_FinalCombine(VS_OUTPUT input) : SV_Target
     float dark_fade = smoothstep(fade_lo, fade_hi, scene_mean);
     float effective_strength = Strength * lerp(1.0, dark_fade, DynamicIntensity);
 
-    // Soft-clip the boosted colour before blending so a saturated highlight that
+    // Soft-clip the boosted color before blending so a saturated highlight that
     // the ratio pushes past 1.0 desaturates cleanly instead of clipping one
     // channel and shifting hue.
     float3 boosted = GamutSoftClip(original * ratio);
@@ -1565,7 +1565,7 @@ float4 PS_FinalCombine(VS_OUTPUT input) : SV_Target
         float purkinje_strength = 1.0 - smoothstep(Purkinje_Fade_Start, purkinje_fade_end, scene_mean);
 
         // INTENSITY, not effective_strength, for the same reason the tonal curve
-        // uses it: this is a luma-driven colour remap, not something derived from
+        // uses it: this is a luma-driven color remap, not something derived from
         // high-frequency detail, so the Dark Scene Fade has no noise argument to
         // make against it and would only cancel it in the scenes it is for.
         purkinje_strength *= Strength;
@@ -1589,7 +1589,7 @@ float4 PS_FinalCombine(VS_OUTPUT input) : SV_Target
         // Track effective_strength rather than the raw slider, so the tints back off
         // with the Dark Scene Fade instead of holding full opacity over a scene the
         // tone fusion has already released. The highlight weight is 1.0 in dark
-        // scenes, so without this the highlight tint keeps shifting colour there.
+        // scenes, so without this the highlight tint keeps shifting color there.
         float strength_weight         = pow(effective_strength, 0.75);
         float scene_shadow_weight     = smoothstep(0.0, 0.3, scene_mean);
         float scene_highlight_weight  = smoothstep(1.0, 0.7, scene_mean);
@@ -1814,7 +1814,7 @@ float3 PS_Present(VS_OUTPUT input) : SV_Target
     if ((EnableDithering || Debug_Dithering) && !passthrough)
     {
         // A single value shared across the channels only dithers luminance, and
-        // leaves a coloured gradient to band in whichever channel crosses its step
+        // leaves a colored gradient to band in whichever channel crosses its step
         // first, so all three paths below produce three separate values.
         float3 uniform_noise;
 
@@ -1848,7 +1848,7 @@ float3 PS_Present(VS_OUTPUT input) : SV_Target
             ReshapeUniformToTriangle(uniform_noise.b)) - 0.5;
     }
 
-    // Banding needs a stretch of near-constant colour, so gate the repair on the
+    // Banding needs a stretch of near-constant color, so gate the repair on the
     // screen-space slope and leave textured regions alone.
     float lum_dx = abs(ddx(GetLuminance(blended)));
     float lum_dy = abs(ddy(GetLuminance(blended)));
@@ -1859,7 +1859,7 @@ float3 PS_Present(VS_OUTPUT input) : SV_Target
     banding_mask *= banding_mask;
 
     // dither spans +/-1 at this point, so strength 1.0 lands one quantisation step
-    // either side of the true colour.
+    // either side of the true color.
     float3 applied = dither * (banding_mask * DitherStrength / DitherSteps);
 
     if (Debug_Dithering)

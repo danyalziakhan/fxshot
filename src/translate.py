@@ -226,7 +226,7 @@ def evaluate_condition(directive: str, arg: str, known: dict[str, str]) -> bool:
 
 def resolve_conditionals(source: str, defines: dict[str, str]) -> str:
     """Keep only the lines an #if chain selects. Without this a texture, pass or
-    uniform declared for another colour space or resolution would be scanned
+    uniform declared for another color space or resolution would be scanned
     and emitted as if it were live. Defines met along the way count toward
     later conditions, as they do in the real preprocessor.
     """

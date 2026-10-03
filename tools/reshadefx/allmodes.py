@@ -2,7 +2,7 @@
 
     python tools\\reshadefx\\allmodes.py [--dir FOLDER] EFFECT [EFFECT ...]
 
-Each effect goes through ReShade's own front end in colour spaces 1, 2 and 3,
+Each effect goes through ReShade's own front end in color spaces 1, 2 and 3,
 once with uniforms as uniforms and once with them as specialisation constants,
 which is what ReShade's performance mode does. Then every entry point named with
 PS_ or VS_ is compiled to DXBC. Only failures and X3554 branch attribute

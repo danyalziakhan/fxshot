@@ -1,6 +1,6 @@
 """Metrics for the two things a luminance based score cannot see.
 
-A scotopic colour shift barely moves luminance, and dithering is deliberately
+A scotopic color shift barely moves luminance, and dithering is deliberately
 sub quantisation noise. Both are invisible to the detail and clipping measures
 in analyse.py, so they need their own.
 """

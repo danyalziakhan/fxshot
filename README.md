@@ -24,7 +24,7 @@ The example frames, untouched on the left and through the effect on the right:
 Textures with mip chains, samplers, scalar and vector uniforms, `#include`,
 namespaces, functions that take a sampler, ordered passes and per-frame state.
 No depth buffer, motion vectors or compute passes; an effect that samples depth
-is handed the colour image instead.
+is handed the color image instead.
 
 ## Requirements and build
 
@@ -109,7 +109,7 @@ turns on the D3D11 debug layer if Graphics Tools is installed.
 `--color-space 2` on the translate step compiles for a scRGB swap chain. The
 input is then a PFM of linear RGB in nits. Output to `.pfm` gives the swap chain
 in nits; output to `.png` shows what an SDR desktop displays. `--present linear`,
-the default, sRGB encodes as Windows does when the game declares its colour
+the default, sRGB encodes as Windows does when the game declares its color
 space, and `--present code` writes the values as they are, which is what a game
 switched to HDR through the GPU driver looks like. Both match desktop captures.
 
@@ -131,7 +131,7 @@ rather than at edges.
 fxshot compiles the translated HLSL, which can succeed where ReShade's own
 compiler fails. `tools\reshadefx\` builds that compiler from a ReShade 6.8
 source checkout, and `allmodes.py` compiles each `PS_` and `VS_` entry point in
-colour spaces 1 to 3, both normally and with uniforms as constants. The second
+color spaces 1 to 3, both normally and with uniforms as constants. The second
 is ReShade's performance mode, and the one that usually goes untested. It prints
 failures and branch attribute warnings, then a problem count.
 
@@ -155,7 +155,7 @@ to render.
   ringing and dark rims. Use `ringing` rather than `overshoot` when overall
   brightness moves: it carries neighbourhood bounds through the frame's own tone
   curve, so a uniform shift does not read as a halo.
-- `chroma.py` measures per channel colour drift, and grain added where the
+- `chroma.py` measures per channel color drift, and grain added where the
   image was flat.
 - `sweep.py` renders a parameter grid in one batch and ranks the results. It
   uses the blue noise texture in `examples` unless `--noise` names another.
